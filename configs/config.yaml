@@ -1,0 +1,13 @@
+app:
+  name: file-management
+  port: 8080
+  allow-file-extensions: pdf|png|jpg
+
+storage:
+  files: ./storage
+
+minio:
+  baseUrl: localhost:9000
+  id: uLCfP73kjPZ0eVPBowKE
+  secret: aByEoVYazt5qUP8znyvOlkDuny4gc9hyktXX3n8w
+  token: 
