@@ -8,6 +8,6 @@ storage:
 
 minio:
   baseUrl: localhost:9000
-  id: uLCfP73kjPZ0eVPBowKE
-  secret: aByEoVYazt5qUP8znyvOlkDuny4gc9hyktXX3n8w
+  id: minioadmin
+  secret: minioadmin
   token: 
