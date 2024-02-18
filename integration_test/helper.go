@@ -56,4 +56,5 @@ func initApp(t *testing.T, container *testcontainers.MinioContainer, ctx context
 	config.Config.AllowFileExtensions = map[string]bool{
 		"jpg": true,
 	}
+	config.Config.MaxSizeFile = 5000000
 }
