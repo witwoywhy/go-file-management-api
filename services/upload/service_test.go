@@ -94,6 +94,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -135,6 +136,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -168,6 +170,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -209,6 +212,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -246,6 +250,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -279,6 +284,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -307,6 +313,7 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{
@@ -353,6 +360,30 @@ func TestExecute(t *testing.T) {
 					AllowFileExtensions: map[string]bool{
 						"png": true,
 					},
+					MaxSizeFile: 5000000,
+				},
+			},
+			expect: &expect{
+				err: errs.New(http.StatusBadRequest, errs.E001, ""),
+			},
+		},
+		{
+			name: "Failed when file over max size",
+			given: &given{
+				request: upload.Request{
+					UserID: "ba347ea4-3e0c-4215-af5f-c2996169474f",
+					File: &multipart.FileHeader{
+						Filename: "test.png",
+						Size:     5000000 + 1,
+					},
+				},
+			},
+			when: &when{
+				config: config.AppConfig{
+					AllowFileExtensions: map[string]bool{
+						"png": true,
+					},
+					MaxSizeFile: 5000000,
 				},
 			},
 			expect: &expect{

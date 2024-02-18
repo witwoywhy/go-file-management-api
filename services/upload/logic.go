@@ -17,6 +17,10 @@ func (request *Request) Validate() error {
 		return err
 	}
 
+	if request.File.Size > config.Config.MaxSizeFile {
+		return errors.New("over max size")
+	}
+
 	split := strings.Split(request.File.Filename, ".")
 	if len(split) < 2 {
 		return errors.New("not found file extension")

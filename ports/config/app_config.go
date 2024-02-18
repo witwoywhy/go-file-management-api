@@ -12,6 +12,7 @@ var Config AppConfig = AppConfig{
 
 type AppConfig struct {
 	AllowFileExtensions map[string]bool
+	MaxSizeFile         int64
 }
 
 func InitAppConfig() {
@@ -24,4 +25,6 @@ func initAllowFileExtensions() {
 	for _, extension := range extensions {
 		Config.AllowFileExtensions[extension] = true
 	}
+
+	Config.MaxSizeFile = viper.GetInt64("app.max-size-file")
 }
